@@ -1,0 +1,12 @@
+dist/
+.gocache/
+.gomodcache/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+reference/
+plan/
+.claude/settings.local.json
+CLAUDE.md
+AGENTS.md

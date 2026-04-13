@@ -1,0 +1,95 @@
+{
+  "skill_name": "financial-analysis",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我分析一下贵州茅台最近的走势和估值情况",
+      "expected_output": "Should fetch quote, info, and recent history for 600519 first, optionally add bill if flow is needed, then give a conclusion-first read on trend, valuation, and risk instead of dumping all fields",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "帮我分析华夏成长混合000001这只基金怎么样，持仓股票业绩如何",
+      "expected_output": "Should fetch fund info, period, asset, and position data, inspect important holdings with stock quote/info, and separately evaluate fund performance, allocation risk, and holdings quality",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "宁德时代和比亚迪哪个更值得投资？帮我对比一下",
+      "expected_output": "Should compare 300750 and 002594 using quote/info and likely stock compare, present a horizon-aware recommendation, and include key tradeoffs plus the biggest risk to the conclusion",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "今天涨停板有哪些股票？封单金额最大的是哪只？",
+      "expected_output": "Should use 'efi-cli stock pool zt --sort seal_amount --desc' to get limit-up stocks sorted by seal amount, identify the top one and describe its characteristics (consecutive days, industry, turnover)",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "最近北向资金流入情况怎么样？哪些股票被增持最多？",
+      "expected_output": "Should use 'efi-cli stock connect history --type north --limit 10' for recent flow, then 'efi-cli stock connect hold-rank --type north --limit 20' for top held stocks, analyze flow direction and top holdings changes",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "最近有什么热门概念板块？帮我看看AI相关的概念股",
+      "expected_output": "Should use 'efi-cli stock sector list --type concept --sort pct --desc --limit 20' to find hot sectors, identify AI-related sector code, then 'efi-cli stock sector members <code>' to list constituent stocks",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "融资融券余额最近趋势如何？",
+      "expected_output": "Should use 'efi-cli stock margin account --limit 20' to get recent margin data, analyze fin_balance trend (rising/falling), compare with index_close trend, assess market leverage sentiment",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "帮我看看最近有哪些股票要解禁，解禁金额大不大",
+      "expected_output": "Should use 'efi-cli stock restricted summary --start 2026-04-01 --end 2026-06-30' for upcoming releases, then 'efi-cli stock restricted detail' for specific stocks, identify large releases by market_cap and free_ratio",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "帮我筛选一些低估值高ROE的股票",
+      "expected_output": "Should use 'efi-cli stock screen --pe-max 20 --roe-min 15 --limit 30' to screen for value stocks, then optionally fetch info for top results to provide detailed analysis",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "比亚迪在千股千评里评分怎么样？机构参与度高吗？",
+      "expected_output": "Should use 'efi-cli stock comment list' and look for 002594, or use comment institution 002594 to check institutional participation trend, analyze score and participation level",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "不要泛泛而谈，重点看一下招商银行最近20个交易日主力资金和估值是否匹配",
+      "expected_output": "Should scope the analysis tightly to recent history plus bill and valuation data, avoid unrelated modules, and explicitly connect money flow with valuation instead of giving a broad company overview",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "给我筛几个适合中长期配置的低估值高ROE股票，但别直接把筛选结果原样贴给我",
+      "expected_output": "Should use stock screen to build a shortlist, then manually inspect only the top candidates and explain why they fit the requested style and what risks the screen misses",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "这只基金近一年涨得不错，现在风险大吗？",
+      "expected_output": "Should analyze a fund using period, asset, and history data, discuss return quality and risk separately, and avoid equating strong recent performance with low risk",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "最近机器人概念是不是在走强？如果是，龙头是情绪票还是基本面票？",
+      "expected_output": "Should use sector list/members plus sentiment-style data to judge whether the theme has breadth and persistence, then distinguish speculative leadership from stronger core names",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "600519 是什么公司？",
+      "expected_output": "Should answer with a light-touch company identification flow rather than triggering a full deep-dive analysis stack",
+      "files": []
+    }
+  ]
+}
